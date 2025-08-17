@@ -1,5 +1,9 @@
 NEWS APP
+
 Eine kleine News-App auf Basis der NewsAPI.
+
+Mit Deployment auf GitHub bereitgestellt.
+
 Screenshots:
 
 Lokal: so sieht die App lokal aus
