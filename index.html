@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>NEWS APP</title>
+    <link rel="stylesheet" href="/src/style.css">
+  </head>
+  <body>
+    <h1>NEWS APP</h1>
+
+    <form id="searchForm" class="panel" autocomplete="off">
+      <label class="row">
+        <span>Suchbegriff</span>
+        <input id="query" type="text" placeholder="Suchbegriff" list="suggestions"/>
+        <datalist id="suggestions">
+          <option value="Berlin"></option>
+          <option value="Deutschland"></option>
+          <option value="Europa"></option>
+        </datalist>
+      </label>
+
+      <label class="row">
+        <span>Sprache</span>
+        <!-- options будут добавлены из TS -->
+        <select id="language"></select>
+      </label>
+
+      <label class="row">
+        <span>Sortieren nach</span>
+        <select id="sort">
+          <option value="relevancy" selected>Relevanz</option>
+          <option value="popularity">Popularität</option>
+          <option value="publishedAt">Neueste</option>
+        </select>
+      </label>
+
+      <button class="btn" type="submit">Suchen</button>
+      <div id="status" class="status" aria-live="polite"></div>
+    </form>
+
+    <section id="results" class="grid" aria-live="polite"></section>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
