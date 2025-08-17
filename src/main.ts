@@ -131,14 +131,18 @@ async function fetchNews(q: string, language: string, sortBy: string) {
     pageSize: "12"     // сколько статей вернуть
   });
 
-  const url = `${API}?${params.toString()}`;
+  //  const url = `${API}?${params.toString()}`;
+ // добавляем ключ в URL, чтобы не было preflight/CORS-проблем
+params.set("apiKey", API_KEY);
+const url = `${API}?${params.toString()}`;
 
   setStatus("Lade Daten …");
 
   // Отправляем запрос к NewsAPI с ключом авторизации в заголовке
-  const res = await fetch(url, {
-    headers: { "X-Api-Key": API_KEY } // ключ лучше отправлять в заголовке
-  });
+  // const res = await fetch(url, {
+  //   headers: { "X-Api-Key": API_KEY } // ключ лучше отправлять в заголовке
+  // });
+  const res = await fetch(url); // без headers
 
   if (!res.ok) {
     const text = await res.text();
